@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        height: 100vh;
+        font-family: "Inter", sans-serif;
+        color: #252525;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      button {
+        outline: none;
+        border: none;
+        font-size: 14px;
+        font-weight: 500;
+        background-color: #195bff;
+        color: white;
+        border-radius: 8px;
+        width: 100%;
+        height: 50px;
+        cursor: pointer;
+      }
+
+      form {
+        width: 440px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      form label {
+        width: 100%;
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        color: #252525;
+        text-align: left;
+        margin-bottom: 16px;
+      }
+
+      textarea {
+        width: 100%;
+        height: 176px;
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        padding-top: 8px;
+        padding-left: 8px;
+        margin: 0 auto;
+        margin-bottom: 16px;
+        border-radius: 8px;
+        border: 2px solid #f0f0f0;
+        background-color: #fdfdfd;
+        box-sizing: border-box;
+        outline: 0 solid white;
+        transition: all 0.4s ease-in-out;
+      }
+
+      textarea:active,
+      textarea:focus {
+        border-color: #195bff;
+        outline: 1px solid #195bff;
+      }
+
+      .text-output {
+        margin-top: 24px;
+        max-width: 440px;
+      }
+      .text-output p {
+        font-weight: 500;
+      }
+
+      @media (max-width: 400px) {
+        form,
+        .text-output {
+          max-width: 95%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <label for="key-word">Keywords:</label>
+      <textarea
+        name="key-word"
+        class="key-words"
+        id="key-word"
+        cols="30"
+        rows="10"
+        placeholder="World, Football, Apple..."
+      ></textarea>
+      <button class="btn" type="submit">Start</button>
+    </form>
+    <div class="text-output"></div>
+    <script>
+      function $(id, slectAll = false) {
+        return slectAll
+          ? document.querySelectorAll(id)
+          : document.querySelector(id);
+      }
+
+      const btn = $(".btn");
+      const keyWords = $(".key-words");
+      const textOutput = $(".text-output");
+      const p = document.createElement("p");
+
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (!keyWords.value) alert("Ara ghina kra asa7bi");
+        const words = keyWords.value.split(",");
+        const wordsCombo = [];
+        if (words.length <= 1) alert("Gn ogar n yat lkalima");
+        for (let i = 0; i < words.length; i++) {
+          for (let l = 0; l < words.length; l++) {
+            if (words[i] === words[l]) continue;
+            wordsCombo.push(
+              words[i].trim().slice(0, 1).toUpperCase() +
+                words[i].trim().slice(1) +
+                words[l].trim()
+            );
+          }
+        }
+
+        p.textContent = "";
+        p.textContent = wordsCombo.toString().replaceAll(",", " ");
+        textOutput.append(p);
+      });
+    </script>
+  </body>
+</html>

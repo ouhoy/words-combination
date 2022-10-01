@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./scss/main.css" />
+    <script src="./index.js" defer></script>
+  </head>
+  <body>
+    <form action="">
+      <label for="first-key-word">First Keyword:</label>
+      <input
+        id="first-key-word"
+        class="first-key-word"
+        type="text"
+        placeholder="pasta"
+      />
+      <label for="second-key-word">Last Keyword:</label>
+      <input
+        id="second-key-word"
+        class="second-key-word"
+        type="text"
+        placeholder="pasta"
+      />
+      <input type="checkbox" id="check" />
+      <label class="check-box" for="check"
+        >Combine the last word and first word</label
+      >
+      <label for="first-key-words">Keywords:</label>
+      <textarea
+        name="key-words"
+        class="key-words"
+        id="key-words"
+        cols="30"
+        rows="10"
+        placeholder="World, Football, Apple..."
+      ></textarea>
+      <button class="btn" type="submit">Start</button>
+    </form>
+    <div class="text-output"></div>
+  </body>
+</html>
